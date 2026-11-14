@@ -7,6 +7,7 @@ from Vector import *
 font = None
 PRIMAR_YCOLOR=(0,255,200)
 BOLDCOLOR =(255,0,200)
+BGCOLOR = (39, 108, 98)
 
 def initialize_text_renderer(size=36):
     global font

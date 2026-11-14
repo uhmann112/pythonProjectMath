@@ -7,8 +7,8 @@ from pygame.locals import *
 from Rendering import *
 from Vector import *
 
-WIDTH = 1800
-HEIGHT = 1000
+WIDTH = 0
+HEIGHT = 0
 BGCOLOR = (39, 108, 98)
 
 
@@ -17,8 +17,16 @@ BGCOLOR = (39, 108, 98)
 def main():
     pygame.init()
     initialize_text_renderer() #!!!!WICHTIG!!!!
-    screen = pygame.display.set_mode((WIDTH, HEIGHT))
-    pygame.display.set_caption('Basic Pygame program')
+
+    # getting the current display dimemnsions
+    info = pygame.display.Info()
+    ww = info.current_w
+    hh = info.current_h
+
+    WIDTH=ww
+    HEIGHT = hh   
+    screen = pygame.display.set_mode((ww/1.2, hh/1.2))
+    pygame.display.set_caption('math stuff')
     clock = pygame.time.Clock()
 
     midpoint = Vector2(WIDTH/2, HEIGHT/2)
