@@ -20,16 +20,15 @@ def main():
 
     # getting the current display dimemnsions
     info = pygame.display.Info()
-    ww = info.current_w
-    hh = info.current_h
+    fractionOfscreen=0.9
+    mainW = math.floor(info.current_w * fractionOfscreen)
+    mainH = math.floor(info.current_h * fractionOfscreen)
 
-    WIDTH=ww
-    HEIGHT = hh   
-    screen = pygame.display.set_mode((ww/1.2, hh/1.2))
+    screen = pygame.display.set_mode((mainW, mainH))
     pygame.display.set_caption('math stuff')
     clock = pygame.time.Clock()
 
-    midpoint = Vector2(WIDTH/2, HEIGHT/2)
+    midpoint = Vector2(mainW/2, mainH/2)
 
     # text = renderText("was geht ab")
     # text_rect = text.get_rect()
@@ -48,7 +47,7 @@ def main():
         screen.fill(BGCOLOR)
         # screen.blit(text, text_rect)
         pygame.draw.lines(screen,(255,255,255),False,points,10)
-        drawGrid(screen,20,WIDTH,HEIGHT)
+        drawGrid(screen,20,mainW,mainH)
         log=len(points)
 
         pygame.display.flip()
