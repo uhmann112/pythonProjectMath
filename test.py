@@ -47,7 +47,7 @@ def main():
         screen.fill(BGCOLOR)
         # screen.blit(text, text_rect)
         pygame.draw.lines(screen,(255,255,255),False,points,10)
-        drawGrid(screen,20,mainW,mainH)
+        betterGrid(screen,20,mainW,mainH)
         log=len(points)
 
         pygame.display.flip()

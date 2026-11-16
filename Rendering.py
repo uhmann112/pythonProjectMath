@@ -69,3 +69,23 @@ def drawGrid(screen,steplength, W, H):
         else:
             pygame.draw.line(screen,PRIMAR_YCOLOR,left,right,3)   
     
+
+
+
+def betterGrid(screen, steplength, W, H):    
+
+    midpoint = Vector2(W/2,H/2)
+        # Vertical lines
+    for i in range(midpoint.x,W,steplength):
+        top=(i,0)
+        bottom=(i,H)
+        pygame.draw.line(screen,BOLDCOLOR,top,bottom,6)
+
+
+
+
+
+
+
+
+
