@@ -48,7 +48,7 @@ def makeCircle(midpoint, radius):
 
 from Vector import *
 
-def drawGrid(screen, stepSize, W, H, isNumbered):
+def drawGrid(screen, stepSize, W, H, isNumbered, thicc):
     #Vertical lines    
     midpoint = Vector2(int(W/2),int(H/2))
 
@@ -56,44 +56,42 @@ def drawGrid(screen, stepSize, W, H, isNumbered):
             top=(i,0)
             bottom=(i,H)
             
-            pygame.draw.line(screen,PRIMAR_YCOLOR,top,bottom,6)
+            pygame.draw.line(screen,PRIMAR_YCOLOR,top,bottom,thicc)
 
     
     for i in range(midpoint.x, 0-stepSize, -stepSize):
             top=(i,0)
             bottom=(i,H)
             
-            pygame.draw.line(screen,PRIMAR_YCOLOR,top,bottom,6)
+            pygame.draw.line(screen,PRIMAR_YCOLOR,top,bottom,thicc)
 
     # horizontal lines
     for i in range(midpoint.y,H+stepSize,stepSize):
         left=(0,i)
         right=(W,i)
             
-        pygame.draw.line(screen,PRIMAR_YCOLOR,left,right,3)  
+        pygame.draw.line(screen,PRIMAR_YCOLOR,left,right,thicc)  
 
     for i in range(midpoint.y,0-stepSize,-stepSize):
             left=(0,i)
             right=(W,i)
                 
-            pygame.draw.line(screen,PRIMAR_YCOLOR,left,right,3)  
+            pygame.draw.line(screen,PRIMAR_YCOLOR,left,right,thicc)
 
-            if i == midpoint.y:
-                pygame.draw.line(screen,BOLDCOLOR,left,right,3)
-            else:
-                pygame.draw.line(screen,PRIMAR_YCOLOR,left,right,3)   
+    left = (0,midpoint.y)  
+    right = (W,midpoint.y)  
+
+
+    top = (midpoint.x,0)  
+    bottom = (midpoint.x,H)  
+
+    pygame.draw.line(screen,BOLDCOLOR,left,right,2)
+    pygame.draw.line(screen,BOLDCOLOR,top,bottom,2)
+
         
 
 
 
-def betterGrid(screen, steplength, W, H):    
-
-    midpoint = Vector2(W/2,H/2)
-        # Vertical lines
-    for i in range(midpoint.x,W,steplength):
-        top=(i,0)
-        bottom=(i,H)
-        pygame.draw.line(screen,BOLDCOLOR,top,bottom,6)
 
 
 
