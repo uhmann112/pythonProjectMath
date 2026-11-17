@@ -19,7 +19,7 @@ def renderText(string):
 
 def makeCircle(midpoint, radius):
     
-    points = [] #llerer array
+    points = [] #lerer array
     startingY = midpoint.y
     startingX = midpoint.x - (radius) #links vom start
     endX = midpoint.x + (radius) #rechts vom start
@@ -44,28 +44,36 @@ def makeCircle(midpoint, radius):
 
 
 
-# TODO: go from the center out so the center line is allways centered
-def drawGrid(screen,steplength, W, H):
-    midpoint = Vector2(W/2,H/2)
+ 
 
-    # Vertical lines
-    for i in range(0,W,steplength):
-        top=(i,0)
-        bottom=(i,H)
+from Vector import *
 
-        if i == midpoint.x:
-            pygame.draw.line(screen,BOLDCOLOR,top,bottom,6)
-        else:
+def drawGrid(screen, stepSize, W, H, isNumbered):
+    #Vertical lines    
+    midpoint = Vector2(int(W/2),int(H/2))
+
+    for i in range(midpoint.x,W+stepSize,stepSize):
+            top=(i,0)
+            bottom=(i,H)
+            
             pygame.draw.line(screen,PRIMAR_YCOLOR,top,bottom,6)
-        
+
+    
+    for i in range(midpoint.x, 0-stepSize, -stepSize):
+            top=(i,0)
+            bottom=(i,H)
+            
+            pygame.draw.line(screen,PRIMAR_YCOLOR,top,bottom,6)
 
     # horizontal lines
-    for i in range(0,H,steplength):
+    for i in range(midpoint.y,H+stepSize,stepSize):
         left=(0,i)
         right=(W,i)
             
-        if i == midpoint.y:
-            pygame.draw.line(screen,BOLDCOLOR,left,right,3)
-        else:
-            pygame.draw.line(screen,PRIMAR_YCOLOR,left,right,3)   
-    
+        pygame.draw.line(screen,PRIMAR_YCOLOR,left,right,3)  
+
+    for i in range(midpoint.y,0-stepSize,-stepSize):
+            left=(0,i)
+            right=(W,i)
+                
+            pygame.draw.line(screen,PRIMAR_YCOLOR,left,right,3)  
