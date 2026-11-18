@@ -44,9 +44,15 @@ def makeCircle(midpoint, radius):
 
 
 
- 
+def drawNumbers(screen,  coords, num):
+    text_surface = font.render(str(num), True, PRIMAR_YCOLOR)
 
-from Vector import *
+    # Blit to screen at position (x, y)
+    pygame.draw.circle(screen, PRIMAR_YCOLOR, (coords.x, coords.y), 4)
+    screen.blit(text_surface, (coords.x,coords.y+100))
+        
+       
+
 
 def drawGrid(screen, stepSize, W, H, isNumbered, thicc):
     #Vertical lines    
@@ -57,6 +63,7 @@ def drawGrid(screen, stepSize, W, H, isNumbered, thicc):
             bottom=(i,H)
             
             pygame.draw.line(screen,PRIMAR_YCOLOR,top,bottom,thicc)
+            drawNumbers(screen,Vector2(i,midpoint.y),2)
 
     
     for i in range(midpoint.x, 0-stepSize, -stepSize):
