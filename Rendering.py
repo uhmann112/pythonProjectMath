@@ -5,9 +5,7 @@ from pygame.locals import *
 from Vector import *
 
 font = None
-PRIMAR_YCOLOR=(0,255,200)
-BOLDCOLOR =(255,0,200)
-BGCOLOR = (39, 108, 98)
+
 
 def initialize_text_renderer(size=36):
     global font
@@ -49,7 +47,7 @@ def drawNumbers(screen,  coords, num):
 
     # Blit to screen at position (x, y)
     pygame.draw.circle(screen, PRIMAR_YCOLOR, (coords.x, coords.y), 4)
-    screen.blit(text_surface, (coords.x,coords.y+100))
+    screen.blit(text_surface, (coords.x,coords.y+20))
         
        
 
