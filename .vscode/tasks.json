@@ -11,7 +11,7 @@
         {
       "label": "git pull on open",
       "type": "shell",
-      "command": "if (Test-Path .git) { git pull --ff-only }",
+      "command": "[ -d .git ] && git pull",
       "runOptions": { "runOn": "folderOpen" },
       "presentation": {
         "reveal": "always",
